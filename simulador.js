@@ -22,4 +22,11 @@ function calcular() {
 
     let cuota = calcularCuotaMensual(total, plazo);
     mostrarEnSpan("spnCuotaMensual", cuota);
+
+    let aprobado = aprobarCredito(capacidad, cuota);
+    if(aprobado == true){
+        mostrarEnSpan("spnEstadoCredito", "CREDITO APROBADO");
+    }else{
+         mostrarEnSpan("spnEstadoCredito", "CREDITO RECHAZADO");
+    }
 }
