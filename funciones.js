@@ -1,10 +1,7 @@
-function calcularDisponible(){
-    let ingresos = recuperarTexto("txtIngresos");
-    let egresos = recuperarTexto("txt$Egresos");
-
+function calcularDisponible(ingresos, egresos) {
     let valorDisponible = ingresos - egresos;
 
-    if(valorDisponible < 0){
+    if (valorDisponible < 0) {
         valorDisponible = 0;
     }
 
