@@ -1,0 +1,13 @@
+Use Claude Opus 5.5 para esta tarea. Le envie un solo prompt
+
+[código CSS]
+
+[código HTML]
+
+Quiero mejorar el diseño visual de mi simulador de crédito para que tenga un aspecto más empresarial y profesional.
+Usa como referencia al Banco Guayaquil, manteniendo una interfaz sencilla y fácil de usar.
+Usa su estilo y logo como referencia y combina estos colores: #FF407D, #FFCAD4, #40679E y #1B3C73.
+
+No cambies la funcionalidad ni el JavaScript del proyecto, solo mejora el HTML y CSS. 
+Organiza mejor los campos, resultados y botones, y haz que el diseño sea responsive para celular, tablet y computadora. 
+Que se vea como un simulador de crédito de una institución financiera real, pero sin hacerlo demasiado recargado.

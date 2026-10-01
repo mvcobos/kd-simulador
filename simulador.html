@@ -4,6 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Simulador de Crédito</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@400;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="simulador.css">
     <script src="simulador.js"></script>
     <script src="funciones.js"></script>
@@ -11,39 +14,141 @@
 </head>
 <body>
 
-    <div class="container">
-        <h1>Simulador de Crédito</h1>
-
-        <h2>Datos financieros</h2>
-        <label for="txtIngresos">Ingresos:</label>
-        <input type="text" id="txtIngresos">
-
-        <label for="txtEgresos">Egresos:</label>
-        <input type="text" id="txtEgresos">
-
-        <p>Disponible: <span id="spnDisponible"></span></p>
-        <p>Capacidad de pago mensual: <span id="spnCapacidadPago"></span></p>
-
-        <h2>Solicitud de crédito</h2>
-        <label for="txtMonto">Monto:</label>
-        <input type="text" id="txtMonto">
-
-        <label for="txtPlazo">Plazo en años:</label>
-        <input type="text" id="txtPlazo">
-
-        <label for="txtTasaInteres">Tasa de interés:</label>
-        <input type="text" id="txtTasaInteres">
-
-        <p>Interés a pagar: <span id="spnInteresPagar"></span></p>
-        <p>Total préstamo: <span id="spnTotalPrestamo"></span></p>
-        <p>Cuota mensual: <span id="spnCuotaMensual"></span></p>
-        <p>Estado de crédito: <span id="spnEstadoCredito">ANALIZANDO...</span></p>
-
-        <div class="buttons">
-            <button id="btnCalcularCredito" onclick="calcular()">Calcular Crédito</button>
-            <button id="btnReiniciar">Reiniciar</button>
+    <!-- Barra superior -->
+    <header class="topbar">
+        <div class="topbar__inner">
+            <div class="brand">
+                <img src="logo.png" alt="Banco Guayaquil" class="brand__logo">
+            </div>
+            <span class="topbar__badge">Simulación referencial</span>
         </div>
-    </div>
+    </header>
+
+    <!-- Encabezado -->
+    <section class="hero">
+        <div class="hero__inner">
+            <h1>Simulador de Crédito</h1>
+            <p>Ingresa tus datos y conoce tu capacidad de pago y la cuota mensual estimada de tu préstamo.</p>
+        </div>
+    </section>
+
+    <main class="container">
+
+        <!-- Columna de datos -->
+        <div class="panel panel--form">
+
+            <section class="card">
+                <div class="card__header">
+                    <span class="step">1</span>
+                    <h2>Datos financieros</h2>
+                </div>
+
+                <div class="grid-2">
+                    <div class="field">
+                        <label for="txtIngresos">Ingresos mensuales</label>
+                        <div class="input-wrap">
+                            <span class="affix">$</span>
+                            <input type="text" id="txtIngresos" inputmode="decimal" placeholder="0.00" autocomplete="off">
+                        </div>
+                    </div>
+
+                    <div class="field">
+                        <label for="txtEgresos">Egresos mensuales</label>
+                        <div class="input-wrap">
+                            <span class="affix">$</span>
+                            <input type="text" id="txtEgresos" inputmode="decimal" placeholder="0.00" autocomplete="off">
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="card">
+                <div class="card__header">
+                    <span class="step">2</span>
+                    <h2>Solicitud de crédito</h2>
+                </div>
+
+                <div class="field">
+                    <label for="txtMonto">Monto solicitado</label>
+                    <div class="input-wrap">
+                        <span class="affix">$</span>
+                        <input type="text" id="txtMonto" inputmode="decimal" placeholder="0.00" autocomplete="off">
+                    </div>
+                </div>
+
+                <div class="grid-2">
+                    <div class="field">
+                        <label for="txtPlazo">Plazo</label>
+                        <div class="input-wrap">
+                            <input type="text" id="txtPlazo" inputmode="numeric" placeholder="0" autocomplete="off">
+                            <span class="affix affix--end">años</span>
+                        </div>
+                    </div>
+
+                    <div class="field">
+                        <label for="txtTasaInteres">Tasa de interés</label>
+                        <div class="input-wrap">
+                            <input type="text" id="txtTasaInteres" inputmode="decimal" placeholder="0" autocomplete="off">
+                            <span class="affix affix--end">%</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="buttons">
+                    <button type="button" id="btnCalcularCredito" class="btn btn--primary" onclick="calcular()">Calcular Crédito</button>
+                    <button type="button" id="btnReiniciar" class="btn btn--secondary">Reiniciar</button>
+                </div>
+            </section>
+        </div>
+
+        <!-- Columna de resultados -->
+        <aside class="panel panel--results">
+            <section class="card card--results">
+                <h2 class="results__title">Resumen de tu simulación</h2>
+
+                <div class="status">
+                    <span class="status__label">Estado de crédito</span>
+                    <span id="spnEstadoCredito" class="status__value">ANALIZANDO...</span>
+                </div>
+
+                <div class="highlight">
+                    <span class="highlight__label">Cuota mensual</span>
+                    <span id="spnCuotaMensual" class="highlight__value"></span>
+                </div>
+
+                <h3 class="results__subtitle">Capacidad financiera</h3>
+                <dl class="results">
+                    <div class="results__row">
+                        <dt>Disponible</dt>
+                        <dd><span id="spnDisponible"></span></dd>
+                    </div>
+                    <div class="results__row">
+                        <dt>Capacidad de pago mensual</dt>
+                        <dd><span id="spnCapacidadPago"></span></dd>
+                    </div>
+                </dl>
+
+                <h3 class="results__subtitle">Detalle del préstamo</h3>
+                <dl class="results">
+                    <div class="results__row">
+                        <dt>Interés a pagar</dt>
+                        <dd><span id="spnInteresPagar"></span></dd>
+                    </div>
+                    <div class="results__row results__row--total">
+                        <dt>Total préstamo</dt>
+                        <dd><span id="spnTotalPrestamo"></span></dd>
+                    </div>
+                </dl>
+
+                <p class="disclaimer">Los valores son referenciales y no constituyen una oferta de crédito.</p>
+            </section>
+        </aside>
+
+    </main>
+
+    <footer class="footer">
+        <p>Simulador de Crédito · Herramienta de cálculo referencial</p>
+    </footer>
 
 </body>
 </html>
