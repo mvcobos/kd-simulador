@@ -19,4 +19,7 @@ function calcular() {
 
     let total = calcularTotalPagar(monto, interes);
     mostrarEnSpan("spnTotalPrestamo", total);
+
+    let cuota = calcularCuotaMensual(total, plazo);
+    mostrarEnSpan("spnCuotaMensual", cuota);
 }
