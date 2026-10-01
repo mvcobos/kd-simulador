@@ -13,7 +13,10 @@ function calcular() {
     let monto = recuperarFloat("txtMonto");
     let plazo = recuperarFloat("txtPlazo");
     let taza = recuperarFloat("txtTasaInteres");
-
     let interes = calcularInteresSimple(monto, taza, plazo);
+
     mostrarEnSpan("spnInteresPagar", interes);
+
+    let total = calcularTotalPagar(monto, interes);
+    mostrarEnSpan("spnTotalPrestamo", total);
 }

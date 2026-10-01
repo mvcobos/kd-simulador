@@ -17,3 +17,8 @@ function calcularInteresSimple(monto, taza, plazoAnios){
     let interes = plazoAnios * monto * (taza/100);
     return interes;
 }
+
+function calcularTotalPagar(monto, interes){
+    let total = monto + interes + 100;
+    return total;
+}
