@@ -5,9 +5,15 @@ function calcular() {
     let egresos = recuperarFloat("txtEgresos");
     let disponible = calcularDisponible(ingresos, egresos);
 
-    mostratEnSpan("spnDisponible", disponible);
+    mostrarEnSpan("spnDisponible", disponible);
     
     let capacidad = calcularCapacidadPago(disponible);
-    mostratEnSpan("spnCapacidadPago", capacidad);
+    mostrarEnSpan("spnCapacidadPago", capacidad);
 
+    let monto = recuperarFloat("txtMonto");
+    let plazo = recuperarFloat("txtPlazo");
+    let taza = recuperarFloat("txtTasaInteres");
+
+    let interes = calcularInteresSimple(monto, taza, plazo);
+    mostrarEnSpan("spnInteresPagar", interes);
 }

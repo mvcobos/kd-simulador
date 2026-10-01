@@ -16,7 +16,7 @@ function recuperarEntero(idComponente){
     return valorEntero;
 }
 
-function mostratEnSpan(idComponente, valor){
+function mostrarEnSpan(idComponente, valor){
     let componente = document.getElementById(idComponente);
     componente.textContent = valor;
 }
