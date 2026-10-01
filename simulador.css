@@ -520,3 +520,21 @@ input::placeholder {
         font-size: 26px;
     }
 }
+/* =========================================
+   Validaciones
+   ========================================= */
+.error {
+    display: block;
+    min-height: 1.4em;
+    margin-top: 4px;
+    font-size: 13px;
+    font-style: italic;
+    font-weight: 600;
+    color: #D93025;
+}
+
+.input-wrap--error,
+.input-wrap--error:focus-within {
+    border-color: #D93025;
+    box-shadow: 0 0 0 4px rgba(217, 48, 37, 0.12);
+}

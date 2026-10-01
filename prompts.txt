@@ -11,3 +11,17 @@ Usa su estilo y logo como referencia y combina estos colores: #FF407D, #FFCAD4, 
 No cambies la funcionalidad ni el JavaScript del proyecto, solo mejora el HTML y CSS. 
 Organiza mejor los campos, resultados y botones, y haz que el diseño sea responsive para celular, tablet y computadora. 
 Que se vea como un simulador de crédito de una institución financiera real, pero sin hacerlo demasiado recargado.
+
+PROMPT PARA GENERAR validaciones
+Use Claude Opus 5.5 para esta tarea. Le envie un solo prompt
+
+Quiero validar los inputs con JavaScript. Debe mostrarse un mensaje de validación debajo de cada campo, en color rojo y cursiva. 
+Los campos no pueden quedar vacíos, solo deben aceptar números y tener un máximo de 5 dígitos. 
+No cambies ninguno de los ID ni modifiques las funciones existentes. Mantén la validación acorde con la estética actual de la página.
+
+Reglas implementadas:
+- Ingresos mensuales: obligatorio, solo números (hasta 2 decimales), máximo 5 dígitos, entre 1 y 99999.
+- Egresos mensuales: obligatorio, solo números (hasta 2 decimales), máximo 5 dígitos, entre 0 y 99999.
+- Monto solicitado: obligatorio, solo números (hasta 2 decimales), máximo 5 dígitos, entre 100 y 99999.
+- Plazo (años): obligatorio, solo números enteros, entre 1 y 30.
+- Tasa de interés (%): obligatorio, solo números (hasta 2 decimales), entre 1 y 100.
