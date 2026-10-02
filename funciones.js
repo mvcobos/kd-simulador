@@ -9,7 +9,7 @@ function calcularDisponible(ingresos, egresos) {
 }
 
 function calcularCapacidadPago(montoDisponible){
-    let capacidad = montoDisponible / 2;
+    let capacidad = montoDisponible * 0.3;
     return capacidad;
 }
 
